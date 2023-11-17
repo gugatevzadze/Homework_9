@@ -11,8 +11,6 @@ class CategoryAdapter(
     private val listener: OnCategoryClickListener
 ) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
-    private var lastSelectedPosition: Int = RecyclerView.NO_POSITION
-
     interface OnCategoryClickListener {
         fun onCategoryClick(category: Category)
     }
@@ -33,7 +31,7 @@ class CategoryAdapter(
         holder.itemView.setOnClickListener {
             listener.onCategoryClick(category)
             if (holder.itemView.isSelected) {
-                //if selected, unselect and get to original state
+                //if selected, unselect and get to the original state
                 holder.itemView.isSelected = false
                 holder.itemView.setBackgroundResource(R.drawable.category_background)
                 val hexColor = "#96A7AF"
